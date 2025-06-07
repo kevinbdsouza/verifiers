@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.abspath('..'))  # ← one level up to project root
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Verifiers'
+project = 'verifiers'
 copyright = '2025, William Brown'
 author = 'William Brown'
 release = '0.1.0'
@@ -20,6 +20,8 @@ release = '0.1.0'
 extensions = [
     'myst_parser',
 ]
+
+html_theme = 'sphinx_rtd_theme'
 
 source_suffix = {
     '.rst': 'restructuredtext',
