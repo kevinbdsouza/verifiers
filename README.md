@@ -69,7 +69,7 @@ To use the latest `main` branch, do:
 ```bash
 git clone https://github.com/willccbb/verifiers.git
 cd verifiers
-uv sync && uv pip install flash-attn --no-build-isolation && uv pip install -e ".[all]"
+uv sync --extra all && uv pip install flash-attn --no-build-isolation
 ```
 
 For CPU development (API-only, no training), just do:
@@ -80,7 +80,7 @@ and install additional tool + environment dependencies (e.g. `textarena`, `reaso
 
 **Troubleshooting:**
 - Ensure your `wandb` and `huggingface-cli` logins are set up (or set `report_to=None` in `training_args`). You should also have something set as your `OPENAI_API_KEY` in your environment (can be a dummy key for vLLM). 
-- On some setups, inter-GPU communication can [hang](https://github.com/huggingface/trl/issues/2923) during vLLM weight syncing. This can usually be alleviated by setting `NCCL_P2P_DISABLE=1` in your environment.
+- On some setups, inter-GPU communication can [hang](https://github.com/huggingface/trl/issues/2923) or crash during vLLM weight syncing. This can usually be alleviated by setting (or unsetting) `NCCL_P2P_DISABLE=1` in your environment. Try this as your first step if you experience NCCL-related issues.
 - If problems persist, please open an [issue](https://github.com/willccbb/verifiers/issues).
 
 ### Resource Requirements
